@@ -70,7 +70,7 @@ function KpiCard({ title, value, prev, isCurrency = true }) {
     <div className="bg-[#1E293B] rounded-xl p-5 shadow-lg">
       <p className="text-slate-400 text-sm mb-1">{title}</p>
       <p className="text-2xl font-bold text-white">
-        {isCurrency ? fmt2(value) : typeof value === 'number' ? value.toLocaleString() : value}
+        {isCurrency ? fmt2(value) : typeof value === 'number' ? (value > 100 ? value.toLocaleString() : value.toFixed(1) + 'x') : value}
       </p>
       <p className={`text-sm mt-1 flex items-center gap-1 ${up ? 'text-emerald-400' : 'text-red-400'}`}>
         <span>{up ? '▲' : '▼'}</span>
